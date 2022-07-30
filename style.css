@@ -1,0 +1,89 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    background: linear-gradient(45deg,#FF5F6D,#ffc371);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2{
+    margin-bottom: 1rem;
+}
+#memoryApp{
+    display: grid;
+    grid-template-columns: repeat(4,6rem); 
+    grid-template-rows: repeat(4,6rem);
+    gap: 1rem;
+    perspective: 800px;
+}
+/* #memoryApp::before{
+    position: absolute;
+    top: 10%;
+    left: -60%;
+    font-size: 250px;
+    font-weight: bold;
+    color: rgba(0,0,0,0.05);
+}
+#memoryApp::before{
+    content: '';
+} */
+@media only screen and (max-width: 450px){
+    #memoryApp{
+        grid-template-columns: repeat(4,4.5rem);
+        grid-template-rows: repeat(4,4.5rem);
+    }
+}
+@media only screen and (max-width: 360px){
+    #memoryApp{
+        grid-template-columns: repeat(4,3.5rem);
+        grid-template-rows: repeat(4,3.5rem);
+    }
+}
+@media only screen and (max-width: 300px){
+    #memoryApp{
+        grid-template-columns: repeat(4,3rem);
+        grid-template-rows: repeat(4,3rem);
+    }
+}
+.card{
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+    cursor: pointer;
+    box-shadow: rgba(0,0,0,0.1) 0.5rem 0.5rem 0.5rem;
+}
+.cover{
+    position: absolute;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    backface-visibility: hidden;
+}
+.image{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.toggleCard{
+    transform: rotateY(180deg);
+    pointer-events: none;
+}
+button{
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    background: rgba(250, 250, 250, 0.1);
+    backdrop-filter: blur(0.2rem);
+    transition: all 150ms ease-in;
+}
+button:hover{
+    background-color: rgba(250, 250, 250, 0.4);
+}
